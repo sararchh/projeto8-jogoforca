@@ -2,15 +2,7 @@ import React from 'react';
 
 import { ContentForca } from '../styles/style';
 
-export function Jogo({ handleChooseWord, wordDrawn, wordSelectedInput }) {
-  let arrayWordDrawn;
-
-  // React.useEffect(() => {
-    if (wordDrawn !== null) {
-      arrayWordDrawn = wordDrawn.split('');
-      console.log('palavra chave', arrayWordDrawn);
-    }
-  // }, [wordDrawn]);
+export function Jogo({ handleChooseWord, arrayWordDrawn}) {
 
   return (
     <ContentForca>
