@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 :root{
   --background: #F4F6F8;
   --shape: #ffffff;
+  --red: red;
   --black: #000000;
   --green: #4faf61;
   --cinza-200: #a0aab6;

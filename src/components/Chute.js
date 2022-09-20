@@ -2,18 +2,19 @@ import React from 'react';
 
 import { ContentKick } from '../styles/style';
 
-export function Chute({ startGame, wordDrawn, wordSelectedInput, setWordSelectedInput }) {
+export function Chute({ startGame, wordDrawn, wordSelectedInput, setWordSelectedInput, setHitWordInput, setWrongWord, setStartGame }) {
 
   const handleSelectedWord = () => {
     if (!wordSelectedInput) return;
+    setStartGame(false);
 
     if (wordDrawn === wordSelectedInput) {
-      console.log('parabens');
+      setHitWordInput(true);
+    } else {
+      setWrongWord(true);
     }
-    console.log('palavra desafio - wordDrawn', wordDrawn)
-    console.log('palavra chutada - wordSelectedInput', wordSelectedInput)
-
-    // passar para o app wordSelectedInput e depois fazer o if de comparacao no jogo
+    console.log('palavra desafio - wordDrawn', wordDrawn);
+    console.log('palavra chutada - wordSelectedInput', wordSelectedInput);
   }
 
   return (

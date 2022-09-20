@@ -14,8 +14,10 @@ export default function App() {
   const [startGame, setStartGame] = React.useState(false); // Iniciar Game
   const [wordDrawn, setWordDrawn] = React.useState(null); // Palavra sorteada
   const [arrayWordDrawn, setArrayWordDrawn] = React.useState(null); // Palavra sorteada em array
-  // const [letterSelected, setLetterSelected] = React.useState([]); // Letra selecionada
   const [wordSelectedInput, setWordSelectedInput] = React.useState(); //palavra digitada no input
+  const [hitWordInput, setHitWordInput] = React.useState(false); //acertou a palavra
+  const [wrongWord, setWrongWord] = React.useState(false); //errou a palavra
+  // const [letterSelected, setLetterSelected] = React.useState([]); // Letra selecionada
 
   const shuffle = () => {
     return Math.random() - 0.5;
@@ -38,14 +40,16 @@ export default function App() {
         wordDrawn={wordDrawn}
         wordSelectedInput={wordSelectedInput}
         arrayWordDrawn={arrayWordDrawn}
+        hitWordInput={hitWordInput}
+        wrongWord={wrongWord}
       />
 
       <ContentInfoForca>
 
         <ContentLetters>
-          {alfabeto.map((i) => (
+          {alfabeto.map((i, index) => (
             <Letras
-              key={i}
+              key={index}
               name={i}
               startGame={startGame}
               wordDrawn={wordDrawn}
@@ -58,6 +62,9 @@ export default function App() {
           wordDrawn={wordDrawn}
           wordSelectedInput={wordSelectedInput}
           setWordSelectedInput={setWordSelectedInput}
+          setHitWordInput={setHitWordInput}
+          setWrongWord={setWrongWord}
+          setStartGame={setStartGame}
         />
 
       </ContentInfoForca>
