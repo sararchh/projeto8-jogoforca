@@ -60,7 +60,6 @@ export const ContentInfoForca = styled.div`
   h1 {
     color: red;
   }
-
 `;
 
 
@@ -74,10 +73,11 @@ export const CardLetter = styled.div`
   margin: 5px;
   border-radius: 5px;
 
-  background: var(--cinza-200);
+  border: ${({ startGame }) => startGame ? '1px solid #7aa7c7' : 'none'};
+  background: ${({ startGame }) => startGame ? 'var(--blue-100)' : 'var(--cinza-200)'};
 
   p {
-    color: var(--cinza-300);
+    color: ${({ startGame }) => startGame ? 'var(--blue-200)' : 'var(--cinza-300)'};
     font-weight: bold;
   }
 `;
@@ -123,4 +123,3 @@ export const ContentKick = styled.div`
 
 
 
-  
