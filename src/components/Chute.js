@@ -2,7 +2,16 @@ import React from 'react';
 
 import { ContentKick } from '../styles/style';
 
-export function Chute({ startGame, wordDrawn, wordSelectedInput, setWordSelectedInput, setHitWordInput, setWrongWord, setStartGame }) {
+export function Chute({
+  startGame,
+  wordDrawn,
+  wordSelectedInput,
+  setWordSelectedInput,
+  setHitWordInput,
+  setWrongWord,
+  setStartGame,
+  setQtdError
+}) {
 
   const handleSelectedWord = () => {
     if (!wordSelectedInput) return;
@@ -12,6 +21,7 @@ export function Chute({ startGame, wordDrawn, wordSelectedInput, setWordSelected
       setHitWordInput(true);
     } else {
       setWrongWord(true);
+      setQtdError(6);
     }
     console.log('palavra desafio - wordDrawn', wordDrawn);
     console.log('palavra chutada - wordSelectedInput', wordSelectedInput);

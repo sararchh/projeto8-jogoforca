@@ -17,6 +17,7 @@ export default function App() {
   const [wordSelectedInput, setWordSelectedInput] = React.useState(); //palavra digitada no input
   const [hitWordInput, setHitWordInput] = React.useState(false); //acertou a palavra
   const [wrongWord, setWrongWord] = React.useState(false); //errou a palavra
+  const [qtdError, setQtdError] = React.useState(0); // quantidade de erros
   // const [letterSelected, setLetterSelected] = React.useState([]); // Letra selecionada
 
   const shuffle = () => {
@@ -42,6 +43,8 @@ export default function App() {
         arrayWordDrawn={arrayWordDrawn}
         hitWordInput={hitWordInput}
         wrongWord={wrongWord}
+        qtdError={qtdError}
+        setQtdError={setQtdError}
       />
 
       <ContentInfoForca>
@@ -65,6 +68,7 @@ export default function App() {
           setHitWordInput={setHitWordInput}
           setWrongWord={setWrongWord}
           setStartGame={setStartGame}
+          setQtdError={setQtdError}
         />
 
       </ContentInfoForca>
