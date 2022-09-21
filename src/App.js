@@ -2,6 +2,7 @@ import React from 'react';
 
 import palavras from './utils/palavras';
 import alfabeto from './utils/alfabeto';
+import { normalizeString } from './utils/string';
 
 import { Letras } from './components/Letras';
 import { Chute } from './components/Chute';
@@ -39,13 +40,13 @@ export default function App() {
 
     let selectedWord = palavras.sort(shuffle)[0];
     setWordDrawn(selectedWord);
-    arraySelectedWord = selectedWord.split('');
-    console.log('palavra selecionada', arraySelectedWord)
+    arraySelectedWord = normalizeString(selectedWord).split('');
+    console.log('palavra escolhida', arraySelectedWord)
     setArrayWordDrawn(arraySelectedWord);
   }
 
   const handleClickLetter = (event) => {
-    if(!startGame) return;
+    if (!startGame) return;
 
     let textLetter = (event.target.innerText).toLowerCase();
     clickedLetters.push(textLetter);

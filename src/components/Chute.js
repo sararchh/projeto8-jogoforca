@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ContentKick } from '../styles/style';
+import { normalizeString } from '../utils/string';
 
 export function Chute({
   startGame,
@@ -17,7 +18,7 @@ export function Chute({
     if (!wordSelectedInput) return;
     setStartGame(false);
 
-    if (wordDrawn === wordSelectedInput) {
+    if (normalizeString(wordDrawn) === normalizeString(wordSelectedInput)) {
       setHitWordInput(true);
     } else {
       setWrongWord(true);
