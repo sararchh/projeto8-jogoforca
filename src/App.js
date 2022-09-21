@@ -27,6 +27,11 @@ export default function App() {
   const handleChooseWord = () => {
     setStartGame(true);
 
+    setWordSelectedInput('');
+    setHitWordInput(false);
+    setWrongWord(false);
+    setQtdError(0);
+
     let selectedWord = palavras.sort(shuffle)[0];
     setWordDrawn(selectedWord);
     console.log('palavra selecionada', selectedWord)
