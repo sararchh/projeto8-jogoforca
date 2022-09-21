@@ -13,13 +13,10 @@ export function Jogo({
   correctLetters
 }) {
 
-  const [correct, setCorrect] = React.useState(correctLetters);
+  
 
-  React.useEffect(() => {
-
-    setCorrect(correctLetters);
-
-  }, [correctLetters]);
+  console.log('correct', correctLetters);
+  console.log('arrayWordDrawn', arrayWordDrawn);
 
   return (
     <ContentForca>
@@ -34,7 +31,7 @@ export function Jogo({
             (<p style={{ color: 'var(--red)' }}>{wordDrawn}</p>)
             :
             arrayWordDrawn?.map((i) => {
-              if (correct.includes(i)) {
+              if (correctLetters.includes(i)) {
                 return i;
               } else {
                 return ' _ ';

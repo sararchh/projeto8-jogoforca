@@ -20,6 +20,7 @@ export default function App() {
   const [hitWordInput, setHitWordInput] = React.useState(false); //acertou a palavra
   const [wrongWord, setWrongWord] = React.useState(false); //errou a palavra
   const [qtdError, setQtdError] = React.useState(0); // quantidade de erros
+  // eslint-disable-next-line
   const [clickedLetters, setClickedLetters] = React.useState([]); // letras clicadas
   // eslint-disable-next-line
   const [alphabet, setAlphabet] = React.useState(alfabeto); // alfabeto
@@ -56,7 +57,7 @@ export default function App() {
     arrayWordDrawn.forEach((i) => {
       if (i === textLetter) {
         acertou = true;
-        correctLetters.push(textLetter);
+        handleCorrectLetters(textLetter);
       }
     })
 
@@ -64,6 +65,12 @@ export default function App() {
       handleSetError();
     }
     console.log('letras acertadas', correctLetters)
+  }
+
+  const handleCorrectLetters = (text) => {
+    const array = [...correctLetters];
+    array.push(text);
+    setCorrectLetters(array);
   }
 
   // Adicionado tratamento para erro de imagem
