@@ -10,7 +10,16 @@ export function Jogo({
   wrongWord,
   wordDrawn,
   qtdError,
- }) {
+  correctLetters
+}) {
+
+  const [correct, setCorrect] = React.useState(correctLetters);
+
+  React.useEffect(() => {
+
+    setCorrect(correctLetters);
+
+  }, [correctLetters]);
 
   return (
     <ContentForca>
@@ -19,13 +28,27 @@ export function Jogo({
 
       <h1 data-identifier="word">
         {hitWordInput ?
-          (<h2 style={{ color: 'var(--green)' }}>{wordDrawn}</h2>)
+          (<p style={{ color: 'var(--green)' }}>{wordDrawn}</p>)
           :
           wrongWord ?
-            (<h2 style={{ color: 'var(--red)' }}>{wordDrawn}</h2>)
+            (<p style={{ color: 'var(--red)' }}>{wordDrawn}</p>)
             :
-            arrayWordDrawn?.map((i) => ' _ ')
+            arrayWordDrawn?.map((i) => {
+              if (correct.includes(i)) {
+                return i;
+              } else {
+                return ' _ ';
+              }
+            })
         }
+
+        {/* {arrayWordDrawn?.map((i) => {
+          if (correct.includes(i)) {
+            return i;
+          } else {
+            return ' _ ';
+          }
+        })} */}
 
       </h1>
     </ContentForca>

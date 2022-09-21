@@ -82,6 +82,7 @@ export const CardLetter = styled.div`
     color: ${({ startGame }) => startGame ? 'var(--blue-200)' : 'var(--cinza-300)'};
     font-weight: bold;
   }
+
 `;
 
 export const ContentLetters = styled.div`

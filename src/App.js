@@ -19,8 +19,11 @@ export default function App() {
   const [hitWordInput, setHitWordInput] = React.useState(false); //acertou a palavra
   const [wrongWord, setWrongWord] = React.useState(false); //errou a palavra
   const [qtdError, setQtdError] = React.useState(0); // quantidade de erros
+  const [clickedLetters, setClickedLetters] = React.useState([]); // letras clicadas
+  // eslint-disable-next-line
   const [alphabet, setAlphabet] = React.useState(alfabeto); // alfabeto
-  const [letterSelected, setLetterSelected] = React.useState([]); // Letras selecionada
+  // eslint-disable-next-line
+  const [correctLetters, setCorrectLetters] = React.useState([]); // Letras selecionada correta
 
   const shuffle = () => {
     return Math.random() - 0.5;
@@ -42,22 +45,27 @@ export default function App() {
   }
 
   const handleClickLetter = (event) => {
+    if(!startGame) return;
+
     let textLetter = (event.target.innerText).toLowerCase();
-    letterSelected.push(textLetter);
-    console.log('teste', letterSelected);
+    clickedLetters.push(textLetter);
 
     let acertou = false;
+
     arrayWordDrawn.forEach((i) => {
       if (i === textLetter) {
         acertou = true;
+        correctLetters.push(textLetter);
       }
     })
 
-    if (acertou == false) {
+    if (acertou === false) {
       handleSetError();
     }
+    console.log('letras acertadas', correctLetters)
   }
 
+  // Adicionado tratamento para erro de imagem
   const handleSetError = () => {
     if (qtdError < 6) {
       setQtdError(qtdError + 1);
@@ -75,6 +83,7 @@ export default function App() {
         wrongWord={wrongWord}
         qtdError={qtdError}
         setQtdError={setQtdError}
+        correctLetters={correctLetters}
       />
 
       <ContentInfoForca>
@@ -84,7 +93,7 @@ export default function App() {
             <Letras
               key={index}
               name={i}
-              startGame={startGame}
+              startGame={startGame && !clickedLetters.includes(i)}
               wordDrawn={wordDrawn}
               handleClickLetter={handleClickLetter}
             />
