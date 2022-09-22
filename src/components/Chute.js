@@ -24,8 +24,7 @@ export function Chute({
       setWrongWord(true);
       setQtdError(6);
     }
-    console.log('palavra desafio - wordDrawn', wordDrawn);
-    console.log('palavra chutada - wordSelectedInput', wordSelectedInput);
+
   }
 
   return (

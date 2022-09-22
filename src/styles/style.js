@@ -22,6 +22,10 @@ export const ContentForca = styled.div`
    justify-content: space-between;
    position: relative;
 
+  p {
+    letter-spacing: 5px;
+  }
+
    img {
     width: 400px;
    }

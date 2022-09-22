@@ -7,16 +7,15 @@ export function Jogo({
   handleChooseWord,
   arrayWordDrawn,
   hitWordInput,
+  setHitWordInput,
   wrongWord,
+  setWrongWord,
   wordDrawn,
   qtdError,
   correctLetters
 }) {
 
-  
-
-  console.log('correct', correctLetters);
-  console.log('arrayWordDrawn', arrayWordDrawn);
+  let qtdLetterWord = [];
 
   return (
     <ContentForca>
@@ -31,7 +30,16 @@ export function Jogo({
             (<p style={{ color: 'var(--red)' }}>{wordDrawn}</p>)
             :
             arrayWordDrawn?.map((i) => {
+
+              if( qtdError === 6){
+                setWrongWord(true);
+              }
+
               if (correctLetters.includes(i)) {
+                qtdLetterWord.push(i);
+                if (qtdLetterWord.length === arrayWordDrawn.length) {
+                  setHitWordInput(true);
+                }
                 return i;
               } else {
                 return ' _ ';
@@ -39,15 +47,8 @@ export function Jogo({
             })
         }
 
-        {/* {arrayWordDrawn?.map((i) => {
-          if (correct.includes(i)) {
-            return i;
-          } else {
-            return ' _ ';
-          }
-        })} */}
-
       </h1>
     </ContentForca>
   );
+
 }

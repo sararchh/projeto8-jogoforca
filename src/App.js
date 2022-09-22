@@ -20,11 +20,8 @@ export default function App() {
   const [hitWordInput, setHitWordInput] = React.useState(false); //acertou a palavra
   const [wrongWord, setWrongWord] = React.useState(false); //errou a palavra
   const [qtdError, setQtdError] = React.useState(0); // quantidade de erros
-  // eslint-disable-next-line
   const [clickedLetters, setClickedLetters] = React.useState([]); // letras clicadas
-  // eslint-disable-next-line
-  const [alphabet, setAlphabet] = React.useState(alfabeto); // alfabeto
-  // eslint-disable-next-line
+  const [alphabet] = React.useState(alfabeto); // alfabeto
   const [correctLetters, setCorrectLetters] = React.useState([]); // Letras selecionada correta
 
   const shuffle = () => {
@@ -38,6 +35,8 @@ export default function App() {
     setHitWordInput(false);
     setWrongWord(false);
     setQtdError(0);
+    setCorrectLetters([]);
+    setClickedLetters([]);
 
     let selectedWord = palavras.sort(shuffle)[0];
     setWordDrawn(selectedWord);
@@ -59,12 +58,13 @@ export default function App() {
         acertou = true;
         handleCorrectLetters(textLetter);
       }
+
     })
 
     if (acertou === false) {
       handleSetError();
     }
-    console.log('letras acertadas', correctLetters)
+
   }
 
   const handleCorrectLetters = (text) => {
@@ -88,7 +88,9 @@ export default function App() {
         wordSelectedInput={wordSelectedInput}
         arrayWordDrawn={arrayWordDrawn}
         hitWordInput={hitWordInput}
+        setHitWordInput={setHitWordInput}
         wrongWord={wrongWord}
+        setWrongWord={setWrongWord}
         qtdError={qtdError}
         setQtdError={setQtdError}
         correctLetters={correctLetters}
