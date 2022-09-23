@@ -12,7 +12,8 @@ export function Jogo({
   setWrongWord,
   wordDrawn,
   qtdError,
-  correctLetters
+  correctLetters,
+  setStartGame
 }) {
 
   let qtdLetterWord = [];
@@ -33,12 +34,14 @@ export function Jogo({
 
               if( qtdError === 6){
                 setWrongWord(true);
+                setStartGame(false);
               }
 
               if (correctLetters.includes(i)) {
                 qtdLetterWord.push(i);
                 if (qtdLetterWord.length === arrayWordDrawn.length) {
                   setHitWordInput(true);
+                  setStartGame(false);
                 }
                 return i;
               } else {

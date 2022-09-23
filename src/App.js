@@ -92,6 +92,7 @@ export default function App() {
         setWrongWord={setWrongWord}
         qtdError={qtdError}
         correctLetters={correctLetters}
+        setStartGame={setStartGame}
       />
 
       <ContentInfoForca>

@@ -24,8 +24,6 @@ export function Chute({
       setWrongWord(true);
       setQtdError(6);
     }
-    console.log('wordDrawn', normalizeString(wordDrawn));
-    console.log('wordSelectedInput', normalizeString(wordSelectedInput));
   }
 
   return (

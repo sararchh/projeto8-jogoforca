@@ -46,6 +46,11 @@ export const ContentForca = styled.div`
     border-radius: 7px;
    }
 
+   button:hover {
+    background-color: #4faf6198;
+    transition: 1s; 
+  }
+
    h1 {
     font-size: 40px;
     margin-right: 5px;
@@ -121,6 +126,11 @@ export const ContentKick = styled.div`
     margin: 4px;
     height: 40px;
     padding: 0 10px;
+  }
+
+  button:hover {
+    background-color: #7aa7c720;
+    transition: 1s;
   }
 `;
 
