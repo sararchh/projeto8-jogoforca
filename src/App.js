@@ -85,14 +85,12 @@ export default function App() {
       <Jogo
         handleChooseWord={handleChooseWord}
         wordDrawn={wordDrawn}
-        wordSelectedInput={wordSelectedInput}
         arrayWordDrawn={arrayWordDrawn}
         hitWordInput={hitWordInput}
         setHitWordInput={setHitWordInput}
         wrongWord={wrongWord}
         setWrongWord={setWrongWord}
         qtdError={qtdError}
-        setQtdError={setQtdError}
         correctLetters={correctLetters}
       />
 
@@ -104,7 +102,6 @@ export default function App() {
               key={index}
               name={i}
               startGame={startGame && !clickedLetters.includes(i)}
-              wordDrawn={wordDrawn}
               handleClickLetter={handleClickLetter}
             />
           ))}

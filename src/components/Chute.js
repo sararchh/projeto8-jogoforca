@@ -18,13 +18,14 @@ export function Chute({
     if (!wordSelectedInput) return;
     setStartGame(false);
 
-    if (normalizeString(wordDrawn) === normalizeString(wordSelectedInput)) {
+    if (normalizeString(wordDrawn.trim()) === normalizeString(wordSelectedInput.trim())) {
       setHitWordInput(true);
     } else {
       setWrongWord(true);
       setQtdError(6);
     }
-
+    console.log('wordDrawn', normalizeString(wordDrawn));
+    console.log('wordSelectedInput', normalizeString(wordSelectedInput));
   }
 
   return (
