@@ -13,16 +13,16 @@ import { Container, ContentInfoForca, ContentLetters } from './styles/style';
 let arraySelectedWord;
 export default function App() {
 
-  const [startGame, setStartGame] = React.useState(false); // Iniciar Game
-  const [wordDrawn, setWordDrawn] = React.useState(null); // Palavra sorteada
-  const [arrayWordDrawn, setArrayWordDrawn] = React.useState(null); // Palavra sorteada em array
-  const [wordSelectedInput, setWordSelectedInput] = React.useState(); //palavra digitada no input
-  const [hitWordInput, setHitWordInput] = React.useState(false); //acertou a palavra
-  const [wrongWord, setWrongWord] = React.useState(false); //errou a palavra
-  const [qtdError, setQtdError] = React.useState(0); // quantidade de erros
-  const [clickedLetters, setClickedLetters] = React.useState([]); // letras clicadas
-  const [alphabet] = React.useState(alfabeto); // alfabeto
-  const [correctLetters, setCorrectLetters] = React.useState([]); // Letras selecionada correta
+  const [startGame, setStartGame] = React.useState(false); 
+  const [wordDrawn, setWordDrawn] = React.useState(null); 
+  const [arrayWordDrawn, setArrayWordDrawn] = React.useState(null); 
+  const [wordSelectedInput, setWordSelectedInput] = React.useState(); 
+  const [hitWordInput, setHitWordInput] = React.useState(false);
+  const [wrongWord, setWrongWord] = React.useState(false);
+  const [qtdError, setQtdError] = React.useState(0);
+  const [clickedLetters, setClickedLetters] = React.useState([]); 
+  const [alphabet] = React.useState(alfabeto); 
+  const [correctLetters, setCorrectLetters] = React.useState([]); 
 
   const shuffle = () => {
     return Math.random() - 0.5;
